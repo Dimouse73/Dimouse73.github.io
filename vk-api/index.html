@@ -5,28 +5,8 @@
     <title>VK-API</title>
 </head>
 <body>
-    
-    <input id="token" type="text">
+    <a href="friends_search.html">friends.search</a><br><br>
+    <a href="users_get.html">users.get</a><br><br>
 
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-    <script>
-
-        function getUrl(method, params) {
-            params = params || {};
-            params['access_token'] = document.querySelector('#token').value;
-            
-            return 'https://api.vk.com/method/' + method + '?' + $.param(params) + '&v=5.131'
-        }
-
-        $.ajax({
-            url: getUrl('friends.search', {count: 60}),
-            method: 'GET',
-            dataType: 'JSONP',
-            success: function(data) {
-                console.log(data)
-            }
-        });
-
-    </script>
 </body>
 </html>
