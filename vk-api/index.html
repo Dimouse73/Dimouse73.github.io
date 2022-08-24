@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>VK-API</title>
+</head>
+<body>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+
+        function getUrl(method, params) {
+            params = params || {};
+            params['access_token'] = "vk1.a.Yo9r6E93yGhdIL-7kVoSJJaXzL53mtq8goMarj79oTJVRuqVB5iYGOMTVWrY5Ew-s2B_TeQeljU0YLJChZhi5Kh0qI1bNPczbPURYNHs3y1_oPchmrARKxIj61py2VlZyXALm53IBmz0ZgjLEn2Q-lagKK5FLnn22bBN-Wq6WNj--jcAuqBdAUPhE4jSAtEE";
+            
+            return 'https://api.vk.com/method/' + method + '?' + $.param(params) + '&v=5.131'
+        }
+
+        $.ajax({
+            url: getUrl('friends.search', {count: 60}),
+            method: 'GET',
+            dataType: 'JSONP',
+            success: function(data) {
+                console.log(data)
+            }
+        });
+
+    </script>
+</body>
+</html>
